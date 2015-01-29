@@ -1,0 +1,11 @@
+#!/bin/bash
+export DISPLAY=:0
+picName="$USER""_""`date +%d_%H_%M_%S`"".jpg"
+scrot -q 5 $picName
+
+#ipaddr="`ifconfig | grep  --after-context=1 "ppp0" | grep inet | awk '{print $2}' | awk -F : '{print $2}'`"
+#echo "http://${ipaddr}:8000/ubox.jpg"
+#python -m SimpleHTTPServer
+scp $picName root@115.28.5.188:/var/www/ubox5/
+echo $picName
+rm $picName

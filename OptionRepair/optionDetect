@@ -1,0 +1,17 @@
+#!/bin/bash
+sleep 50
+cnt=`lsmod | grep option | sed 1q | awk '{print$3}'`
+
+if [ $cnt -eq 0 ];
+then
+export DISPLAY=:0.0
+notify-send KernelModule "Reinstall Option"
+sudo Reoption
+fi
+
+echo $cnt
+export DISPLAY=:0.0
+notify-send KernelModule "No need install Option"
+
+
+

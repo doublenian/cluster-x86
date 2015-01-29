@@ -1,0 +1,5 @@
+#!/bin/bash
+wget --spider http://www.baidu.com 1>/dev/null 2>/dev/null
+if [ "$?" != 0 ]; then
+        killall ssh 2>/dev/null
+fi
